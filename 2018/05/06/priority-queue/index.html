@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Priority Queue 介紹First Max Last Min（最大堆）或First Min Last Max（最小堆）的容器適配器（container adapter）簡單來說就是最大（小）的元素最先被吐出來vector為其預設使用容器 至於堆是什麼呢？想了解的可以去這裡看看。 記得要引入&amp;lt;queue&amp;gt; 用法們 ##建立  priority_queue&amp;lt;type&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-07T16:11:45.074Z">
+<meta property="og:updated_time" content="2018-05-07T16:15:01.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Priority Queue">
 <meta name="twitter:description" content="Priority Queue 介紹First Max Last Min（最大堆）或First Min Last Max（最小堆）的容器適配器（container adapter）簡單來說就是最大（小）的元素最先被吐出來vector為其預設使用容器 至於堆是什麼呢？想了解的可以去這裡看看。 記得要引入&amp;lt;queue&amp;gt; 用法們 ##建立  priority_queue&amp;lt;type&amp;gt;">
@@ -144,9 +144,9 @@
 <p>##建立</p>
 <ol>
 <li>priority_queue&lt;type&gt; name<br><font color="#AAAAAA">複雜度：O(1)</font><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較）<br>預設為最大堆</li>
-<li>priority_queue&lt;type&gt; name(iterator1, iterator2) <em>複雜度：O(n)</em><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），並且以iterator到iterator2的內容物初始化</li>
-<li>priority_queue&lt;type&gt; name[a] <em>複雜度：O(n)（要開a個）</em><br>一次開很多priority_queue，分別為name[0], name[1], …, name[a-1]</li>
-<li>priority_queue&lt;type, container, compare_function&gt; name <em>複雜度：O(1)</em><br>用container建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），比較函式為compare_function<br>常用在自己定義的物件上</li>
+<li>priority_queue&lt;type&gt; name(iterator1, iterator2)<br><font color="#AAAAAA">複雜度：O(n)</font><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），並且以iterator到iterator2的內容物初始化</li>
+<li>priority_queue&lt;type&gt; name[a]<br><font color="#AAAAAA">複雜度：O(n)（要開a個）</font><br>一次開很多priority_queue，分別為name[0], name[1], …, name[a-1]</li>
+<li>priority_queue&lt;type, container, compare_function&gt; name<br><font color="#AAAAAA">複雜度：O(1)</font><br>用container建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），比較函式為compare_function<br>常用在自己定義的物件上</li>
 </ol>
 <p>##增加</p>
 <ol>

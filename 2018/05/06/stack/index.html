@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Stack #介紹FILO（First In Last Out）的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; #用法們 ##建立  stack&amp;lt;type&amp;gt; name 複雜度：O(1)建立一個">
+    <meta name="description" content="Stack 介紹實作FILO（First In Last Out）資料結構的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; 用法們 ##建立  stack&amp;lt;type&amp;gt; name複雜度：O(1)建">
 <meta name="keywords" content="STL Containers">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stack">
 <meta property="og:url" content="http://yoursite.com/2018/05/06/stack/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Stack #介紹FILO（First In Last Out）的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; #用法們 ##建立  stack&amp;lt;type&amp;gt; name 複雜度：O(1)建立一個">
+<meta property="og:description" content="Stack 介紹實作FILO（First In Last Out）資料結構的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; 用法們 ##建立  stack&amp;lt;type&amp;gt; name複雜度：O(1)建">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-06T11:29:31.027Z">
+<meta property="og:updated_time" content="2018-05-07T16:07:57.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stack">
-<meta name="twitter:description" content="Stack #介紹FILO（First In Last Out）的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; #用法們 ##建立  stack&amp;lt;type&amp;gt; name 複雜度：O(1)建立一個">
+<meta name="twitter:description" content="Stack 介紹實作FILO（First In Last Out）資料結構的容器適配器（Container Adapter）deque為其預設使用容器 可以把stack想像成一疊書要新增一本書只能從最上面（前面）疊要拿走一本書只能從最上面（前面）拿這樣就是一個stack的模型了 記得要引入&amp;lt;stack&amp;gt; 用法們 ##建立  stack&amp;lt;type&amp;gt; name複雜度：O(1)建">
     
     
         
@@ -139,37 +139,37 @@
 
   <div class="content" itemprop="articleBody">
     <p>Stack</p>
-<p>#介紹<br>FILO（First In Last Out）的容器適配器（Container Adapter）<br>deque為其預設使用容器</p>
+<p><big>介紹</big><br>實作FILO（First In Last Out）資料結構的容器適配器（Container Adapter）<br>deque為其預設使用容器</p>
 <p>可以把stack想像成一疊書<br>要新增一本書只能從最上面（前面）疊<br>要拿走一本書只能從最上面（前面）拿<br>這樣就是一個stack的模型了</p>
 <p>記得要引入&lt;stack&gt;</p>
-<p>#用法們</p>
+<p><big>用法們</big></p>
 <p>##建立</p>
 <ol>
-<li>stack&lt;type&gt; name 複雜度：O(1)<br>建立一個名為name的新stack，內容物的型別為type</li>
-<li>stack&lt;type&gt; name[a] 複雜度：O(n)（要開a個）<br>一次開很多stack，分別為name[0], name[1], …, name[a-1]</li>
+<li>stack&lt;type&gt; name<br><font color="#AAAAAA">複雜度：O(1)</font><br>建立一個名為name的新stack，內容物的型別為type</li>
+<li>stack&lt;type&gt; name[a]<br><font color="#AAAAAA">複雜度：O(n)（要開a個）</font><br>一次開很多stack，分別為name[0], name[1], …, name[a-1]</li>
 </ol>
 <p>##增加</p>
 <ol>
-<li>name.push(a) 複雜度：O(1)<br>在name的頂端放進一個a</li>
+<li>name.push(a)<br><font color="#AAAAAA">複雜度：O(1)</font><br>在name的頂端放進一個a</li>
 </ol>
 <p>##減少</p>
 <ol>
-<li>name.pop() 複雜度：O(1)<br>把name最頂端的一個元素移除</li>
+<li>name.pop()<br><font color="#AAAAAA">複雜度：O(1)</font><br>把name最頂端的一個元素移除</li>
 </ol>
 <p>##存取</p>
 <ol>
-<li>name.top() 複雜度：O(1)<br>回傳最頂端的元素的<strong>索引</strong></li>
+<li>name.top()<br><font color="#AAAAAA">複雜度：O(1)</font><br>回傳最頂端的元素的<strong>索引</strong></li>
 </ol>
 <p>##迭代<br>stack不能迭代哦</p>
 <p>##取得參數</p>
 <ol>
-<li>name.empty() 複雜度：O(1)<br>如果name是空的就回傳True<br>要不然就回傳False</li>
-<li>name.size() 複雜度：O(1)<br>回傳name元素的總數</li>
+<li>name.empty()<br><font color="#AAAAAA">複雜度：O(1)</font><br>如果name是空的就回傳True<br>要不然就回傳False</li>
+<li>name.size()<br><font color="#AAAAAA">複雜度：O(1)</font><br>回傳name元素的總數</li>
 </ol>
-<p>#例子<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">	s.push(<span class="number">1</span>); <span class="comment">// 1</span></span><br><span class="line">	s.push(<span class="number">2</span>); <span class="comment">// 2 1</span></span><br><span class="line">	s.push(<span class="number">3</span>); <span class="comment">// 3 2 1</span></span><br><span class="line">	s.push(<span class="number">4</span>); <span class="comment">// 4 3 2 1</span></span><br><span class="line">	s.push(<span class="number">5</span>); <span class="comment">// 5 4 3 2 1</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"top: "</span> &lt;&lt; s.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 5</span></span><br><span class="line">	s.pop();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"top: "</span> &lt;&lt; s.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size: "</span> &lt;&lt; s.size() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"empty: "</span> &lt;&lt; s.empty() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><big>例子</big><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">	s.push(<span class="number">1</span>); <span class="comment">// 1</span></span><br><span class="line">	s.push(<span class="number">2</span>); <span class="comment">// 2 1</span></span><br><span class="line">	s.push(<span class="number">3</span>); <span class="comment">// 3 2 1</span></span><br><span class="line">	s.push(<span class="number">4</span>); <span class="comment">// 4 3 2 1</span></span><br><span class="line">	s.push(<span class="number">5</span>); <span class="comment">// 5 4 3 2 1</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"top: "</span> &lt;&lt; s.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 5</span></span><br><span class="line">	s.pop();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"top: "</span> &lt;&lt; s.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size: "</span> &lt;&lt; s.size() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"empty: "</span> &lt;&lt; s.empty() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>輸出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">top: 5</span><br><span class="line">top: 4</span><br><span class="line">size: 4</span><br><span class="line">empty: 0</span><br><span class="line">[Finished in 2.3s]</span><br></pre></td></tr></table></figure></p>
-<p>#例題<br><a href="https://neoj.sprout.tw/problem/36/" target="_blank" rel="noopener">Sprout OJ 36</a></p>
-<p>#參考資料<br><a href="http://www.cplusplus.com/reference/stack/stack/" target="_blank" rel="noopener">cplusplus stack</a></p>
+<p><big>例題</big><br><a href="https://neoj.sprout.tw/problem/36/" target="_blank" rel="noopener">Sprout OJ 36</a></p>
+<p><big>參考資料</big><br><a href="http://www.cplusplus.com/reference/stack/stack/" target="_blank" rel="noopener">cplusplus stack</a></p>
 
   </div>
 </article>

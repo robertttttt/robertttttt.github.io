@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Priority Queue 介紹First Max Last Min（最大堆）或First Min Last Max（最小堆）的容器適配器（container adapter）簡單來說就是最大（小）的元素最先被吐出來vector為其預設使用容器 至於堆是什麼呢？想了解的可以去這裡看看。 記得要引入&amp;lt;queue&amp;gt; 用法們 ##建立  priority_queue&amp;lt;type&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-06T11:58:58.249Z">
+<meta property="og:updated_time" content="2018-05-07T16:09:04.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Priority Queue">
 <meta name="twitter:description" content="Priority Queue 介紹First Max Last Min（最大堆）或First Min Last Max（最小堆）的容器適配器（container adapter）簡單來說就是最大（小）的元素最先被吐出來vector為其預設使用容器 至於堆是什麼呢？想了解的可以去這裡看看。 記得要引入&amp;lt;queue&amp;gt; 用法們 ##建立  priority_queue&amp;lt;type&amp;gt;">
@@ -143,28 +143,28 @@
 <p><big>用法們</big></p>
 <p>##建立</p>
 <ol>
-<li>priority_queue&lt;type&gt; name <font color="#AAAAAA"><em>複雜度：O(1)</em></font><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較）<br>預設為最大堆</li>
+<li>priority_queue&lt;type&gt; name<br><font color="#AAAAAA">複雜度：O(1)</font><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較）<br>預設為最大堆</li>
 <li>priority_queue&lt;type&gt; name(iterator1, iterator2) <em>複雜度：O(n)</em><br>建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），並且以iterator到iterator2的內容物初始化</li>
 <li>priority_queue&lt;type&gt; name[a] <em>複雜度：O(n)（要開a個）</em><br>一次開很多priority_queue，分別為name[0], name[1], …, name[a-1]</li>
 <li>priority_queue&lt;type, container, compare_function&gt; name <em>複雜度：O(1)</em><br>用container建立一個名為name的新priority_queue，內容物的型別為type（type要可比較），比較函式為compare_function<br>常用在自己定義的物件上</li>
 </ol>
 <p>##增加</p>
 <ol>
-<li>name.push(a) <em>複雜度：O(log<sub>2</sub>n)</em><br>在name的尾端放進一個a</li>
+<li>name.push(a)<br><font color="#AAAAAA">複雜度：O(log<sub>2</sub>n)</font><br>在name的尾端放進一個a</li>
 </ol>
 <p>##減少</p>
 <ol>
-<li>name.pop() <em>複雜度：O(log<sub>2</sub>n)</em><br>把name中最大（小）的一個元素移除</li>
+<li>name.pop()<br><font color="#AAAAAA">複雜度：O(log<sub>2</sub>n)</font><br>把name中最大（小）的一個元素移除</li>
 </ol>
 <p>##存取</p>
 <ol>
-<li>name.top() <em>複雜度：O(1)</em><br>回傳最大（小）的元素的<strong>索引</strong></li>
+<li>name.top()<br><font color="#AAAAAA">複雜度：O(1)</font><br>回傳最大（小）的元素的<strong>索引</strong></li>
 </ol>
 <p>##迭代<br>priority queue不能迭代哦</p>
 <p>##取得參數</p>
 <ol>
-<li>name.empty() <em>複雜度：O(1)</em><br>如果name是空的就回傳True<br>要不然就回傳False</li>
-<li>name.size() <em>複雜度：O(1)</em><br>回傳name元素的總數</li>
+<li>name.empty()<br><font color="#AAAAAA">複雜度：O(1)</font><br>如果name是空的就回傳True<br>要不然就回傳False</li>
+<li>name.size()<br><font color="#AAAAAA">複雜度：O(1)</font><br>回傳name元素的總數</li>
 </ol>
 <p><big>例子</big><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v; <span class="comment">// </span></span><br><span class="line">	v.push_back(<span class="number">3</span>); <span class="comment">// 3</span></span><br><span class="line">	v.push_back(<span class="number">1</span>); <span class="comment">// 3 1</span></span><br><span class="line">	v.push_back(<span class="number">2</span>); <span class="comment">// 3 1 2 _</span></span><br><span class="line">	v.push_back(<span class="number">4</span>); <span class="comment">// 3 1 2 4</span></span><br><span class="line">	v.push_back(<span class="number">5</span>); <span class="comment">// 3 1 2 4 5 _ _ _</span></span><br><span class="line"></span><br><span class="line">	priority_queue&lt;<span class="keyword">int</span>&gt; pq(v.begin(), v.end()); <span class="comment">// 5 4 3 2 1</span></span><br><span class="line">	priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt; &gt; pqmax; </span><br><span class="line">	priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; pqmin;</span><br><span class="line"></span><br><span class="line">	pqmax.push(<span class="number">3</span>); <span class="comment">// 3</span></span><br><span class="line">	pqmax.push(<span class="number">1</span>); <span class="comment">// 3 1</span></span><br><span class="line">	pqmax.push(<span class="number">2</span>); <span class="comment">// 3 2 1</span></span><br><span class="line">	pqmax.push(<span class="number">4</span>); <span class="comment">// 4 3 2 1</span></span><br><span class="line">	pqmax.push(<span class="number">5</span>); <span class="comment">// 5 4 3 2 1</span></span><br><span class="line"></span><br><span class="line">	pqmin.push(<span class="number">3</span>); <span class="comment">// 1</span></span><br><span class="line">	pqmin.push(<span class="number">1</span>); <span class="comment">// 1 3</span></span><br><span class="line">	pqmin.push(<span class="number">2</span>); <span class="comment">// 1 2 3</span></span><br><span class="line">	pqmin.push(<span class="number">4</span>); <span class="comment">// 1 2 3 4</span></span><br><span class="line">	pqmin.push(<span class="number">5</span>); <span class="comment">// 1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; pq.top() &lt;&lt; <span class="string">" "</span> &lt;&lt; pqmax.top() &lt;&lt; <span class="string">" "</span> &lt;&lt; pqmin.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 5 5 1</span></span><br><span class="line">	pq.pop();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; pq.top() &lt;&lt; <span class="string">" "</span> &lt;&lt; pqmax.top() &lt;&lt; <span class="string">" "</span> &lt;&lt; pqmin.top() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4 5 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>輸出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 5 1</span><br><span class="line">4 5 1</span><br><span class="line">[Finished in 2.5s]</span><br></pre></td></tr></table></figure></p>
